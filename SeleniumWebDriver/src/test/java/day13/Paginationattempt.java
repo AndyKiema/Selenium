@@ -12,7 +12,7 @@ public class Paginationattempt {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
         ChromeDriver c= new ChromeDriver();
-        c.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        c.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         c.get("https://testautomationpractice.blogspot.com/");
         List<WebElement>buttons=c.findElements(By.xpath("//ul[@id='pagination']/li"));
         c.manage().window().maximize();
