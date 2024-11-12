@@ -28,7 +28,7 @@ public class ActionvsActions {
         System.out.println(box2.getAttribute("value"));
         //line 24 and 26 are the same
         //Actions is a class used to perform mouse actions
-        //Action is an interface used to hold built a action
+        //Action is an interface used to hold a built action
 	}
 
 }
