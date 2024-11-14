@@ -12,7 +12,7 @@ public class SSLhandling {
 		ChromeOptions options= new ChromeOptions();
 		options.setAcceptInsecureCerts(true); // Accepts SSL certificates
 		
-        ChromeDriver chd= new ChromeDriver();
+        ChromeDriver chd= new ChromeDriver(options);
         chd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         chd.get("https://expired.badssl.com/");
         chd.manage().window().maximize();
