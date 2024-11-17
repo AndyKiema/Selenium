@@ -31,7 +31,7 @@ public class Writingstaticdataintoexcel {
 	   thirdrow.createCell(1).setCellValue("Name is");
 	   thirdrow.createCell(2).setCellValue("Andrew");
 	   
-	   workbook.write(file);
+	   workbook.write(file); //Attach workbook to file
 	   workbook.close();
 	   file.close();
 	   System.out.println("File created");
