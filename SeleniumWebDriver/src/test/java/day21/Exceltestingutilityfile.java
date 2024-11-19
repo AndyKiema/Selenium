@@ -53,7 +53,7 @@ public class Exceltestingutilityfile {
 		return data;
 	}
 	
-	public static String setCellData(String xlfilepath, String xlsheet, int rownum, int cellnum, String value) throws IOException {
+	public static void setCellData(String xlfilepath, String xlsheet, int rownum, int cellnum, String value) throws IOException {
 		fi= new FileInputStream(xlfilepath);
 		wb= new XSSFWorkbook(fi);
 		st=wb.getSheet(xlsheet);
@@ -65,6 +65,5 @@ public class Exceltestingutilityfile {
 		wb.write(fo);
 		wb.close();
 		fo.close();
-		
 	}
 }

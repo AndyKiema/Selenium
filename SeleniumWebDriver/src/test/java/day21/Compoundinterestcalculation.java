@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Compoundinterestcalculation {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
        ChromeDriver cd= new ChromeDriver();
        cd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -41,13 +42,20 @@ public class Compoundinterestcalculation {
     	  Select cfreq= new Select(cd.findElement(By.xpath("//*[@id=\"edit-compound-interest\"]")));
     	  cfreq.selectByVisibleText(frequency);
     	  cd.findElement(By.xpath("//*[@id=\"edit-submit\"]")).click(); //clicking submit button
-    	  
+
     	  //Validation
-    	  String reflectedamt=cd.findElement(By.xpath("//*[@id=\"results_container\"]/div/h3/span[2]")).toString();
-    	  if(reflectedamt.equals(totamt)) {
+    	 WebElement reflectedamt=cd.findElement(By.xpath("//*[@id=\"results_container\"]/div/h3/span[2]"));
+    	 JavascriptExecutor js=(JavascriptExecutor)cd;
+    	 js.executeScript("arguments[0].scrollIntoView();",reflectedamt);
+    	  if(reflectedamt.toString().equals(totamt)) {
     		  System.out.println("Test passed");
-    		  Exceltestingutilityfile
+    		  Exceltestingutilityfile.setCellData(xlfilepath, xlsheet, i, 8,"Passed");
     	  }
+    	  else {
+    		  System.out.println("Test failed");
+    		  Exceltestingutilityfile.setCellData(xlfilepath, xlsheet, i, 8,"Failed");
+    	  }
+    	  cd.findElement(By.xpath("//*[@id=\"edit-reset\"]")).click();
        }
 	}
 
