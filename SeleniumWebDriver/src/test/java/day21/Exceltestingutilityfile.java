@@ -52,4 +52,19 @@ public class Exceltestingutilityfile {
 		fi.close();
 		return data;
 	}
+	
+	public static String setCellData(String xlfilepath, String xlsheet, int rownum, int cellnum, String value) throws IOException {
+		fi= new FileInputStream(xlfilepath);
+		wb= new XSSFWorkbook(fi);
+		st=wb.getSheet(xlsheet);
+		rw=st.getRow(rownum);
+		
+		cl=rw.createCell(cellnum);
+		cl.setCellValue(value);
+		fo= new FileOutputStream(xlfilepath);
+		wb.write(fo);
+		wb.close();
+		fo.close();
+		
+	}
 }
