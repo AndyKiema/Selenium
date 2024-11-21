@@ -30,8 +30,7 @@ public class Compoundinterestcalculation {
     	  String intrate=Exceltestingutilityfile.getCellData(xlfilepath,xlsheet,i,3);
     	  String frequency=Exceltestingutilityfile.getCellData(xlfilepath,xlsheet,i,4);
     	  String totamt=Exceltestingutilityfile.getCellData(xlfilepath,xlsheet,i,5);
-    	  String expectedamt=Exceltestingutilityfile.getCellData(xlfilepath,xlsheet,i,6);
-    	  String result=Exceltestingutilityfile.getCellData(xlfilepath,xlsheet,i,7);
+    	 
     	  
     	  
     	  //pass data into application
