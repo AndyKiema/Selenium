@@ -13,7 +13,7 @@ public class Readingfrompropertiesfile {
 		// TODO Auto-generated method stub
         FileInputStream filepath=new FileInputStream(System.getProperty("user.dir")+"\\Testdatafolder\\Propertiesfile");
         Properties prop= new Properties();
-        prop.load(filepath);
+        prop.load(filepath); //Loading the file so that it can be read
         //Getting values of the keys
         String link=prop.getProperty("url");
         prop.getProperty("email");
